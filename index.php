@@ -14,6 +14,17 @@
 
     <link rel="shortcut icon" href="flatui/img/favicon.ico">
 
+     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        .hide-bullets {
+list-style:none;
+margin-left: -40px;
+margin-top:20px;
+}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
       <script src="flatui/js/vendor/html5shiv.js"></script>
@@ -46,7 +57,33 @@
         <br/>
         <br/>
         <div class="row" align="center">
-            PROMOTION PREVIEW
+              <div id="main_area">
+                <!-- Slider -->
+                <div class="row">
+                   
+                        <!-- Top part of the slider -->
+                        
+                            <div class="col-sm-8 col-sm-offset-2 " id="">
+                               
+                                    <!-- Carousel items -->
+                                            
+                                        
+                                        <img src="http://f.ptcdn.info/766/036/000/nwt5lf7zd2O28tIqqV5-o.jpg">
+                                         <p>welcome </p>
+                                       
+                                  
+                                                                
+                           
+                            
+
+                         
+                             </div>   
+                       
+                    
+                </div><!--/Slider-->
+
+               
+        </div>
         </div>
 
         <br/>
@@ -122,6 +159,12 @@
         $( "#view-stat-col" ).click(function() {
             window.location.href = "statistics.php";
         });
+
+
+
+
+
+
 
     </script>
   </body>
