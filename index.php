@@ -36,17 +36,42 @@
         <div class="row">
             <hr/>
         </div>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="row" align="center">
+            PROMOTION PREVIEW
+        </div>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <div class="row">
+            <hr/>
+        </div>
         <div class="row" align="center">
             <div class="col-xs-12">
                 <h3>Select your menu</h3>
             </div>
         </div>
         <div class="row" align="center">
-            <div class="col-xs-6">
+            <div class="col-xs-6" id="add-pro-col">
                 <span class="fui-new" style="font-size:180px;"></span>
                 <p>Add promotion</p>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-6" id="view-stat-col">
                 <span class="fui-window" style="font-size:180px;"></span>
                 <p>View statistics</p>
             </div>
@@ -62,5 +87,42 @@
         </div>
     </div>
     <!-- /.container -->
+    <script>
+        $('#add-pro-col').css('cursor', 'pointer');
+        $('#view-stat-col').css('cursor', 'pointer');
+
+        $( "#add-pro-col").hover(
+          function() {
+            $( this).css(
+                { opacity: 0.5 }
+            );
+          }, function() {
+            $( this).css(
+                { opacity: 1 }
+            );
+          }
+        );
+
+        $( "#view-stat-col").hover(
+          function() {
+            $( this).css(
+                { opacity: 0.5 }
+            );
+          }, function() {
+            $( this).css(
+                { opacity: 1 }
+            );
+          }
+        );
+
+        $( "#add-pro-col" ).click(function() {
+            window.location.href = "promotion.php";
+        });
+
+        $( "#view-stat-col" ).click(function() {
+            window.location.href = "statistics.php";
+        });
+
+    </script>
   </body>
 </html>
