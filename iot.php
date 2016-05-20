@@ -1,12 +1,5 @@
-
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "1234";
-$dbname = "iot";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname );
+include 'connectdb.php';
 
 // Check connection
 if ($conn->connect_error) {

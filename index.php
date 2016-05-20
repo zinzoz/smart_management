@@ -1,4 +1,4 @@
-<php?
+<?php include 'connectdb.php';?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,10 +17,10 @@
      <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
         .hide-bullets {
-list-style:none;
-margin-left: -40px;
-margin-top:20px;
-}
+            list-style:none;
+            margin-left: -40px;
+            margin-top:20px;
+        }
     </style>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
