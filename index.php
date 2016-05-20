@@ -127,13 +127,6 @@
         <br/>
         <br/>
         <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
         <script>
             checkEntry();
             setInterval(checkEntry, 5000);
