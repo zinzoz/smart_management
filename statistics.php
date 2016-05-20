@@ -2,7 +2,7 @@
 <php?
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Smart Management</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,9 +20,14 @@
       <script src="flatui/js/vendor/html5shiv.js"></script>
       <script src="flatui/js/vendor/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    
-
-  </body>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+      <div class="col-xs-1">
+          <a href="index.php"><</a>
+      </div>
+  </div>
+</div>
+</body>
 </html>
