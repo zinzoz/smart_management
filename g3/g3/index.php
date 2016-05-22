@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
     <!-- Loading Flat UI -->
     <link href="flatui/css/flat-ui.min.css" rel="stylesheet">
 <!-- Plotly.js -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></scripzt>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="shortcut icon" href="flatui/img/favicon.ico">
 
 
@@ -64,14 +65,31 @@
 
  <div id="myDiv" style="width: 100%; height: 100%;"><!-- Plotly chart will be drawn inside this DIV --></div>
   <script>
+ 
+var trace1 = {
+  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+  y: [2, 3, null, 17, 14,2, 3, null, 17, 14, 12, 10, null, 15],
+  mode: 'lines',
+  connectgaps: true
+};
 
-var data = [{
-  x: ['1', '2', '3' ,'5'],
-  y: [20, 14, 23 ,60],
-  type: 'bar'
-}];
+var trace2 = {
+  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+  y: [16, null, 13, 10, 8, null, 11, 12,13, 10, 8, null, 11, 12],
+  mode: 'lines',
+  connectgaps: true
+};
 
-Plotly.newPlot('myDiv', data);
+
+
+var data = [trace1, trace2];
+
+var layout = {
+  title: 'Summary Different Temperature IN vs Temperature Out ',
+  showlegend: false
+};
+
+Plotly.newPlot('myDiv', data, layout);
   </script>
 
 <script type="text/javascript" src="./jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
