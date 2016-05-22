@@ -15,7 +15,7 @@
     <link href="flatui/css/flat-ui.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    
+
     <script type="text/javascript">
         String.prototype.replaceAt=function(index, char){
             var a = this.split("");
@@ -69,8 +69,8 @@
             document.getElementById('w-check').checked = false;
             document.getElementById('b-check').checked = false;
             document.getElementById('g-check').checked = false;
-            
-            var ajaxRequest;  
+
+            var ajaxRequest;
             try{
                 ajaxRequest = new XMLHttpRequest();
             }catch (e){
@@ -95,7 +95,7 @@
 
 
              ajaxRequest.open("GET", "ajaxloadpromotion.php", true);
-             ajaxRequest.send(null); 
+             ajaxRequest.send(null);
         }
 
         function removePromotion(id){
@@ -112,7 +112,7 @@
                         }
                     }
             });
-            
+
             return false;
         }
     </script>
@@ -135,7 +135,7 @@
             <form id="form" name="form">
                 <fieldset>
                     <input type="text" id="title" name="title" class="input-block-level" placeholder="Title of your promotion"/>
-                    
+
                     <textarea rows="3" id="description" name="description" class="input-block-level" placeholder="Description of your promotion"></textarea>
 
                     <p>Choose your target</p>
@@ -163,10 +163,10 @@
                             Girl
                         </label>
                     </div>
-                    <input 
-                        id="submit" 
-                        onclick="addPromotion()" 
-                        type="button" 
+                    <input
+                        id="submit"
+                        onclick="addPromotion()"
+                        type="button"
                         value="Add"
                         class="btn btn-danger pull-right"/>
                 </fieldset>

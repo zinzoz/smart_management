@@ -19,8 +19,8 @@ mysqli_close($conn);
 
     <!-- Loading Flat UI -->
     <link href="flatui/css/flat-ui.min.css" rel="stylesheet">
-<!-- Plotly.js -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="shortcut icon" href="flatui/img/favicon.ico">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -31,9 +31,13 @@ mysqli_close($conn);
 </head>
 <body>
 <div class="container">
- <div id="myDiv" style="width: 100%; height: 100%;"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <div class="row" align="center">
+ <div id="graph" style="width: 70%; height: 600px;">
+
+ </div>
+ </div>
   <script>
- 
+
 var trace1 = {
   x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
   y: [2, 3, null, 17, 14,2, 3, null, 17, 14, 12, 10, null, 15],
@@ -70,7 +74,7 @@ var layout = {
   showlegend: false
 };
 
-Plotly.newPlot('myDiv', data, layout);
+Plotly.newPlot('graph', data, layout);
   </script>
 </div>
 </body>
