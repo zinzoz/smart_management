@@ -4,7 +4,7 @@ if(isset($_POST['month'])){
 }
 
 include '../../connectdb.php';
-$sql = "SELECT DAY(ts) as day, COUNT(*) as entry FROM entry WHERE ts BETWEEN '2016-05-01 00:00:01' AND'2016-05-31 23:59:59' GROUP BY day";
+$sql = "SELECT DAY(ts) as day, COUNT(*) as entry FROM entry WHERE ts BETWEEN '". $month ."-01 00:00:01' AND '". $month ."-31 23:59:59' GROUP BY day";
 
 $result = $conn->query($sql) or trigger_error($conn->error);
 $sum_entry = array();

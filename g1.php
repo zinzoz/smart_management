@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Smart Management</title>
+    <title>Summary Entry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="g2/g2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -89,10 +89,10 @@
             };
             var data = [man, woman,boy, girl];
             var layout = {
-              title: 'Summation Entry By Hour',
+              title: 'Summary Entry By Hour',
               showlegend: false,
               xaxis: {
-                title: 'Time',
+                title: 'Time (hour)',
                 showgrid: false,
                 zeroline: false
               },
@@ -101,7 +101,7 @@
                 showline: false
               }
             };
-            
+
             Plotly.newPlot('graph', data, layout);
           }
         });
@@ -155,7 +155,7 @@
       language:  'en',
       weekStart: 1,
       todayBtn:  1,
-      autoclose: 1,
+      autoclose: 0,
       todayHighlight: 1,
       startView: 2,
       minView: 2,
