@@ -28,86 +28,84 @@
         return str.length < max ? pad("0" + str, max) : str;
       }
       function dateChange() {
-      var date = document.getElementById("startdate").value;
-      $.ajax({
-        type: "POST",
-        url: "g1graph.php",
-        data: "date="+date,
-        cache: false,
-        success: function(html) {
-        var man_data = html.split('*')[0];
-        var woman_data = html.split('*')[1];
-        var boy_data = html.split('*')[2];
-        var girl_data = html.split('*')[3];
+        var date = document.getElementById("startdate").value;
+        $.ajax({
+          type: "POST",
+          url: "g1graph.php",
+          data: "date="+date,
+          cache: false,
+          success: function(html) {
+            var man_data = html.split('*')[0];
+            var woman_data = html.split('*')[1];
+            var boy_data = html.split('*')[2];
+            var girl_data = html.split('*')[3];
 
-        var man_data_int = man_data.split(',').map(function(item) {
-            return parseInt(item, 10);
+            var man_data_int = man_data.split(',').map(function(item) {
+                return parseInt(item, 10);
+            });
+
+            var woman_data_int = woman_data.split(',').map(function(item) {
+                return parseInt(item, 10);
+            });
+
+            var boy_data_int = boy_data.split(',').map(function(item) {
+                return parseInt(item, 10);
+            });
+
+            var girl_data_int = girl_data.split(',').map(function(item) {
+                return parseInt(item, 10);
+            });
+
+            var man = {
+              x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+              y: man_data_int,
+              name: 'Man',
+              mode: 'lines+markers',
+              connectgaps: true
+            };
+
+            var woman = {
+              x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+              y: woman_data_int,
+              name: 'Woman',
+              mode: 'lines+markers',
+              connectgaps: true
+            };
+
+            var boy = {
+              x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+              y: boy_data_int,
+              name: 'Boy',
+              mode: 'lines+markers',
+              connectgaps: true
+            };
+
+            var girl = {
+              x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+              y: girl_data_int,
+              name: 'Girl',
+              mode: 'lines+markers',
+              connectgaps: true
+            };
+            var data = [man, woman,boy, girl];
+            var layout = {
+              title: 'Summation Entry By Hour',
+              showlegend: false,
+              xaxis: {
+                title: 'Time',
+                showgrid: false,
+                zeroline: false
+              },
+              yaxis: {
+                title: 'Number of Entry',
+                showline: false
+              }
+            };
+            
+            Plotly.newPlot('graph', data, layout);
+          }
         });
-
-        var woman_data_int = woman_data.split(',').map(function(item) {
-            return parseInt(item, 10);
-        });
-
-        var boy_data_int = boy_data.split(',').map(function(item) {
-            return parseInt(item, 10);
-        });
-
-        var girl_data_int = girl_data.split(',').map(function(item) {
-            return parseInt(item, 10);
-        });
-
-var man = {
-  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
-  y: man_data_int,
-  name: 'Man',
-  mode: 'lines+markers',
-  connectgaps: true
-};
-
-var woman = {
-  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
-  y: woman_data_int,
-  name: 'Woman',
-  mode: 'lines+markers',
-  connectgaps: true
-};
-
-var boy = {
-  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
-  y: boy_data_int,
-  name: 'Boy',
-  mode: 'lines+markers',
-  connectgaps: true
-};
-
-var girl = {
-  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
-  y: girl_data_int,
-  name: 'Girl',
-  mode: 'lines+markers',
-  connectgaps: true
-};
-
-
-var data = [man, woman,boy, girl];
-
-var layout = {
-  title: 'Summation Entry By Hour',
-  showlegend: false,
-  xaxis: {
-    title: 'Time',
-    showgrid: false,
-    zeroline: false
-  },
-  yaxis: {
-    title: 'Number of Entry',
-    showline: false
-  }
-};
-Plotly.newPlot('graph', data, layout);
-        }
-    });
-  }
+      }
     </script>
 </head>
 <body id="l">

@@ -27,7 +27,7 @@
       }
 
       function linkAvgTempHour(){
-        window.location = "g3.php";
+        window.location = "g3/g3";
       }
     </script>
 </head>
