@@ -12,7 +12,8 @@
 
     <!-- Loading Flat UI -->
     <link href="flatui/css/flat-ui.min.css" rel="stylesheet">
-
+<!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="shortcut icon" href="flatui/img/favicon.ico">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
