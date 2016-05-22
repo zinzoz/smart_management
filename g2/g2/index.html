@@ -35,7 +35,20 @@
                         y: cus_data,
                         type: 'bar'
                     }];
-                    Plotly.newPlot('myDiv', data);
+                    var layout = {
+                      title: 'Summary Entry By Hour',
+                      showlegend: false,
+                      xaxis: {
+                        title: 'Day',
+                        showgrid: false,
+                        zeroline: false
+                      },
+                      yaxis: {
+                        title: 'Total Number of Entry',
+                        showline: false
+                      }
+                    };
+                    Plotly.newPlot('myDiv', data, layout);
                 }
             });
         }
