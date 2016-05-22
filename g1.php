@@ -1,11 +1,3 @@
-<?php
-include 'connectdb.php';
-$result = $conn->query("SELECT HOUR(ts) as hour , count(*) FROM entry group by hour") or trigger_error($conn->error);
-while ($row = $result->fetch_array()){
-}
-mysqli_close($conn);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +16,101 @@ mysqli_close($conn);
       <script src="flatui/js/vendor/html5shiv.js"></script>
       <script src="flatui/js/vendor/respond.min.js"></script>
     <![endif]-->
+<script type="text/javascript">
+
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+
+      function pad (str, max) {
+        str = str.toString();
+        return str.length < max ? pad("0" + str, max) : str;
+      }
+      function dateChange() {
+      var date = document.getElementById("startdate").value;
+      $.ajax({
+        type: "POST",
+        url: "g1graph.php",
+        data: "date="+date,
+        cache: false,
+        success: function(html) {
+        var man_data = html.split('*')[0];
+        var woman_data = html.split('*')[1];
+        var boy_data = html.split('*')[2];
+        var girl_data = html.split('*')[3];
+
+        var man_data_int = man_data.split(',').map(function(item) {
+            return parseInt(item, 10);
+        });
+
+        var woman_data_int = woman_data.split(',').map(function(item) {
+            return parseInt(item, 10);
+        });
+
+        var boy_data_int = boy_data.split(',').map(function(item) {
+            return parseInt(item, 10);
+        });
+
+        var girl_data_int = girl_data.split(',').map(function(item) {
+            return parseInt(item, 10);
+        });
+
+var man = {
+  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+  y: man_data_int,
+  name: 'Man',
+  mode: 'lines+markers',
+  connectgaps: true
+};
+
+var woman = {
+  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+  y: woman_data_int,
+  name: 'Woman',
+  mode: 'lines+markers',
+  connectgaps: true
+};
+
+var boy = {
+  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+  y: boy_data_int,
+  name: 'Boy',
+  mode: 'lines+markers',
+  connectgaps: true
+};
+
+var girl = {
+  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
+  y: girl_data_int,
+  name: 'Girl',
+  mode: 'lines+markers',
+  connectgaps: true
+};
+
+
+var data = [man, woman,boy, girl];
+
+var layout = {
+  title: 'Summation Entry By Hour',
+  showlegend: false,
+  xaxis: {
+    title: 'Time',
+    showgrid: false,
+    zeroline: false
+  },
+  yaxis: {
+    title: 'Number of Entry',
+    showline: false
+  }
+};
+Plotly.newPlot('graph', data, layout);
+        }
+    });
+  }
+    </script>
 </head>
-<body>
+<body id="l">
 <div class="container">
 <div class="row">
     <div class="col-xs-1">
@@ -42,7 +127,7 @@ mysqli_close($conn);
 <div class="form-group">
         <label for="dtp_input2" class="col-md-2 control-label">Date Start</label>
         <div class="input-group date form_date col-md-5" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-            <input class="form-control" name="startdate "size="16" type="text" value="" readonly>
+            <input class="form-control" id="startdate" name="startdate "size="16" type="text" readonly onchange="dateChange()">
             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
   <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
@@ -56,7 +141,7 @@ mysqli_close($conn);
 <br>
 <br>
 <div class="row" align="center">
-  <div id="graph" style="width: 70%; height: 600px;"></div>
+  <div id="graph" style="width: 100%; height: 600px;"></div>
 </div>
 <script type="text/javascript" src="g2/g2/jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="g2/g2/bootstrap/js/bootstrap.min.js"></script>
@@ -64,56 +149,22 @@ mysqli_close($conn);
 <script type="text/javascript" src="g2/js/locales/bootstrap-datetimepicker.uk.js" charset="UTF-8"></script>
 
 <script type="text/javascript">
+  document.getElementById("startdate").value = yyyy + "-" + pad(mm, 2) + "-" + pad(dd, 2);
+
+  dateChange();
+
   $('.form_date').datetimepicker({
-        language:  'en',
-        weekStart: 1,
-        todayBtn:  1,
-    autoclose: 1,
-    todayHighlight: 1,
-    startView: 2,
-    minView: 2,
-    forceParse: 0,
-    format: "yyyy-mm-dd"
-    });
+      language:  'en',
+      weekStart: 1,
+      todayBtn:  1,
+      autoclose: 1,
+      todayHighlight: 1,
+      startView: 2,
+      minView: 2,
+      forceParse: 0,
+      format: "yyyy-mm-dd"
+  });
 
-var trace1 = {
-  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
-  y: [2, 3, null, 17, 14,2, 3, null, 17, 14, 12, 10, null, 15],
-  mode: 'lines+markers',
-  connectgaps: true
-};
-
-var trace2 = {
-  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
-  y: [16, null, 13, 10, 8, null, 11, 12,13, 10, 8, null, 11, 12],
-  mode: 'lines',
-  connectgaps: true
-};
-
-var trace3 = {
-  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
-  y: [13, 5, null, 16, 19, 16, 17, null, 15,13, 10, 8, null, 11, 12],
-  mode: 'lines+markers',
-  connectgaps: true
-};
-
-var trace4 = {
-  x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
-  y: [13, null, 23, 10, 8, null, 11, 12,13, 10, 8, null, 11, 12],
-  mode: 'lines',
-  connectgaps: true
-};
-
-
-var data = [trace1, trace2,trace3, trace4];
-
-var layout = {
-  title: 'Summation Entry By Hour',
-  showlegend: false
-};
-
-
-Plotly.newPlot('graph', data, layout);
 </script>
 </div>
 </body>
