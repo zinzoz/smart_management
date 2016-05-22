@@ -2,7 +2,6 @@
 include 'connectdb.php';
 $result = $conn->query("SELECT HOUR(ts) as hour , count(*) FROM entry group by hour") or trigger_error($conn->error);
 while ($row = $result->fetch_array()){
-  var_dump($row); echo '</br>';
 }
 mysqli_close($conn);
 ?>
@@ -31,9 +30,23 @@ mysqli_close($conn);
 </head>
 <body>
 <div class="container">
- <div id="myDiv" style="width: 100%; height: 100%;"><!-- Plotly chart will be drawn inside this DIV --></div>
-  <script>
- 
+  <div class="row">
+      <div class="col-xs-1">
+          <a href="statistics.php"><</a>
+      </div>
+  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div class="row" align="center">
+    <div id="myDiv" style="width: 70%; height: 600px;"></div>
+  </div>
+
+<script>
+
 var trace1 = {
   x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
   y: [2, 3, null, 17, 14,2, 3, null, 17, 14, 12, 10, null, 15],
