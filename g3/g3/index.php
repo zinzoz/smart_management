@@ -47,7 +47,7 @@
       var date = document.getElementById("startdate").value;
       $.ajax({
         type: "POST",
-        url: "g1graph.php",
+        url: "g3graph.php",
         data: "date="+date,
         cache: false,
         success: function(html) {
