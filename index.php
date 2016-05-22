@@ -71,7 +71,7 @@
             if(type.toUpperCase() === 'g'.toUpperCase()) {
                 typeValue = 8;
             }
-            var ajaxRequest;  
+            var ajaxRequest;
             try{
                 ajaxRequest = new XMLHttpRequest();
             }catch (e){
@@ -129,14 +129,14 @@
         <br/>
         <script>
             checkEntry();
-            setInterval(checkEntry, 5000);
+            setInterval(checkEntry, 2000);
         </script>
         <div class="row" align="center">
             <div id="main_area">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 " id="show-promotion">
-                    </div>   
-                </div>   
+                    </div>
+                </div>
             </div>
         </div>
         <br/>
