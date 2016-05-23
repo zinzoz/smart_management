@@ -25,18 +25,20 @@
                 data: "month="+month,
                 cache: false,
                 success: function(html) {
+                  console.log(html);
                     var cus_data = html.split(',').map(function(item) {
                         return parseInt(item, 10);
                     });
+
                     var data = [{
-                        x: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', 
-                            '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', 
+                        x: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+                            '12', '13', '14', '15', '16', '17', '18', '19', '20', '21',
                             '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
                         y: cus_data,
                         type: 'bar'
                     }];
                     var layout = {
-                      title: 'Summary Entry By Hour',
+                      title: 'Summary Entry By Day',
                       showlegend: false,
                       xaxis: {
                         title: 'Day',
@@ -80,7 +82,7 @@
                 <input type="hidden" id="dtp_input2" value="" />
             </div>
         </fieldset>
-    </form> 
+    </form>
 </div>
 <br>
 <br>
@@ -98,7 +100,7 @@
 <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.uk.js" charset="UTF-8">
-    
+
 </script>
 <script type="text/javascript">
 
