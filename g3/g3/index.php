@@ -34,7 +34,7 @@
         success: function(html) {
           var man_data = html.split('*')[0];
           var woman_data = html.split('*')[1];
-          
+
           var man_data_int = man_data.split(',').map(function(item) {
               return parseInt(item, 10);
           });
@@ -45,7 +45,8 @@
           var trace1 = {
             x: [8, 9, 10, 11, 12, 13, 14, 15,16,17,18,19,20,21],
             y: man_data_int,
-            mode: 'TempIN',
+            name: 'TempIn',
+            mode: 'lines',
             connectgaps: true
           };
 
